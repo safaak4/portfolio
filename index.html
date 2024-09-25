@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>safaakworks</title>
+
+    <!-- CSS FILES -->
+    <link rel="icon" href="">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/slick.css"/>
+
+    <link href="css/tooplate-little-fashion.css" rel="stylesheet">
+
+    <style>
+        /* Butonların varsayılan hali */
+        .buttons button {
+            background-color: transparent; /* Arkaplanı kaldır */
+            border: none; /* Çizgiyi kaldır */
+            padding: 10px 20px;
+            font-size: 22px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Butonun üzerine gelindiğinde alt çizgi göster */
+        .buttons button::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+
+        .buttons button:hover::after {
+            width: 100%; /* Üzerine gelindiğinde alt çizgi tam genişliğe ulaşır */
+        }
+
+        /* Seçilen buton için sürekli alt çizgi */
+        .buttons button.active::after {
+            width: 100%;
+        }
+
+        /* slider icindir*/
+
+        .image-slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 300px; /* Sabit kare yüksekliği */
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%; /* 3 fotoğraf için genişlik */
+        }
+
+        .slider-wrapper img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover; /* Fotoğrafın alanı tam kaplamasını sağlar */
+            flex-shrink: 0;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+
+        /* popup içindir */
+
+        /* Popup stili */
+        .popup {
+            display: none; /* Başlangıçta gizli */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Arka plan */
+        }
+
+        .popup-content {
+            position: relative;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+
+        /* Mobilde fotoğrafın üstte, yazıların altta olması için medya sorgusu */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center; /* Mobilde yazıların ortalanması için */
+            }
+
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 20px; /* Fotoğraf ile yazı arasında boşluk */
+                width: 200px; /* Mobilde daha küçük bir genişlik */
+            }
+        }
+
+        @media (min-width: 768px) {
+
+
+            .profile-image {
+                margin-right: 60px;
+
+            }
+        }
+
+
+
+    </style>
+
+
+</head>
+
+<body>
+
+<section class="preloader">
+    <div class="spinner">
+        <span class="sk-inner-circle"></span>
+    </div>
+</section>
+
+<main>
+
+    <div class="container col-8" style="display: flex; padding-top: 140px; margin: auto; align-items: center; justify-content: center;" >
+        <img class="col-3 profile-image" style="width: 270px;" src="images/profil.png">
+        <div class="row" style="">
+            <h2 style="">Cuma Şafak Kara</h2>
+            <p style="">21 yaşındayım. İstanbul Üniversitesi, Elektrik Elektronik Mühendisliği bölümünde ikinci sınıf öğrencisiyim.</p>
+            <p style="">4 yıldır aktif olarak çoğunlukla sosyal medya odaklı tasarım ürünleri hazırlıyorum. Bu sitede yaptığım işlerin örneklerini bulabilirsiniz.</p>
+        </div>
+    </div>
+
+
+    <div class="container" style="display: flex; align-items: center; justify-content: center; margin-top: 100px">
+
+
+        <section id="buttons">
+            <!-- Butonlar -->
+            <div class="buttons">
+                <button onclick="showSection('posters')">Posterler</button>
+                <button onclick="showSection('socialMedia')">Sosyal Medya</button>
+                <button onclick="showSection('documentaries')">Belgeseller</button>
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+    <section class="products section-padding">
+        <div class="container">
+
+            <!-- Posterler Section'ı -->
+            <section id="posters" class="section-content">
+
+                <div class="row" style="display: flex; align-items: center; justify-content: space-evenly;">
+
+                    <h2>Posterler</h2>
+
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/poster/fibg_panel.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Filistin için Bin Genç Paneli
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">20 Eylül 2024</p>
+                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                       href="https://drive.google.com/file/d/17H2F4LC-gk9GCXUIMajsBMBZArUn516V/view?usp=sharing">
+                                        Baskı dosyası için tıkla.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/poster/silahlar_dusmana_dogru.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Tüm Silahlar Düşmana Doğru.
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">25 Temmuz 2024</p>
+                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                       href="https://drive.google.com/file/d/1DJ6JWELmT2axMV7PborPJ71lI0SgoJzR/view?usp=sharing">
+                                        Baskı dosyası için tıkla.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/poster/nakba_day.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Nakba Day - Anahtar Bizde!
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">25 Temmuz 2024</p>
+                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                       href="https://drive.google.com/file/d/17cz2SJ1cTI8fVo0zPUjCtva10y4MdJKd/view?usp=sharing">
+                                        Baskı dosyası için tıkla.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/poster/global_intifada.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Long Live Global Intifada
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">4 Haziran 2024</p>
+                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                       href="https://drive.google.com/file/d/1r7qwOqliQJRVy83jJDDCPHedqGT7aMRm/view?usp=sharing">
+                                        Baskı dosyası için tıkla.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12" style="margin-top: 28px">
+                        <div class="product-thumb">
+                            <img src="images/poster/eidmubarak_palestine.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Eid Mubarak Y'all, <br> May All Colonizers Fall!
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">10 Nisan 2024</p>
+                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                       href="https://drive.google.com/file/d/1ZKdqNfLw8ttcSjz66l6ewAgmkydGvYR_/view?usp=sharing">
+                                        Baskı dosyası için tıkla.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12" style="" >
+                        <div class="product-thumb">
+                            <img src="images/poster/leilakhaled.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Leila Khaled
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">1 Nisan 2024</p>
+                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                       href="https://drive.google.com/file/d/1ZKdqNfLw8ttcSjz66l6ewAgmkydGvYR_/view?usp=sharing">
+                                        Baskı dosyası için tıkla.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12" style="margin-top: 42px" >
+                        <div class="product-thumb">
+                            <img src="images/poster/yasasin_kuresel_intifada.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Yaşasın Küresel İntifada!
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">5 Mart 2024</p>
+                                    <p class="product-p">
+                                        Baskı dosyası yok.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12" style="margin-top: 26px" >
+                        <div class="product-thumb">
+                            <img src="images/poster/palestine1_1.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Ne Halklar Arası Savaş, Ne Sınıflar Arası Barış!
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">6 Ocak 2024</p>
+                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                       href="https://drive.google.com/file/d/16jnmVrrxNo3AGOXFGVxKajwUxsVnIsf9/view?usp=sharing">
+                                        Baskı dosyası için tıkla.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12" style="margin-top: 26px" >
+                        <div class="product-thumb">
+                            <img src="images/poster/palestine1_2.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Ne Halklar Arası Savaş, Ne Sınıflar Arası Barış!
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">6 Ocak 2024</p>
+                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                       href="https://drive.google.com/file/d/1W56wRLjrS15VNDx3yBHzz1fnf4NgZ-iM/view?usp=sharing">
+                                        Baskı dosyası için tıkla.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12" style="margin-top: 0px" >
+                        <div class="product-thumb">
+                            <img src="images/poster/feyruz.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Feyruz - Fi Amal
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">25 Haziran 2023</p>
+                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                       href="https://drive.google.com/file/d/1YyS85ZPNL6z0NVYEtmvqiAEsmrYRYmcH/view?usp=sharing">
+                                        Baskı dosyası için tıkla.
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12" style="margin-top: 0px" >
+                        <div class="product-thumb">
+                            <img src="images/poster/ankara_polisiyesi.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Feyruz - Fi Amal
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">6 Ocak 2023</p>
+                                    <p class="product-p">
+                                        Baskı dosyası yok.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/poster/antalya.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Antalya
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">11 Aralık 2022</p>
+                                    <p class="product-p">
+                                        Baskı dosyası yok.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/poster/antakya.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            Antakya
+                                        </div>
+                                    </h5>
+                                    <p class="" style="font-size: 16px; margin-bottom: 6px">6 Aralık 2022</p>
+                                    <p class="product-p">
+                                        Baskı dosyası yok.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </section>
+
+            <!-- Sosyal Medya Section'ı -->
+            <section id="socialMedia" class="section-content">
+                <h2>Sosyal Medya</h2>
+
+                <div class="row container" style="display: flex; align-items: center; justify-content: space-evenly;">
+
+
+                    <!-- melisa vargas 41 -->
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/sosyalmedya/works5.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            41 - Melissa Vargas
+                                        </div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- amalmezun 29ekim -->
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/sosyalmedya/amalmezun5_29ekim.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            29 Ekim Özel Gönderisi
+                                        </div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- amalmezun 19mayis 2024 -->
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/sosyalmedya/amalmezun7_19mayis.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            19 Mayıs Özel Gönderisi
+                                        </div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- amalmezun 19mayis 2023 -->
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb">
+                            <img src="images/sosyalmedya/amalmezun3_19mayis.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div  class="product-title-link">
+                                            19 Mayıs Özel Gönderisi
+                                        </div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mezunlar Bulusmasi 8 -->
+                    <div class="col-lg-3 col-12 slider-container">
+                        <div class="product-thumb">
+                            <div class="image-slider">
+                                <div class="slider-wrapper">
+                                    <img src="images/sosyalmedya/amalmezun8/1.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun8/2.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun8/3.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun8/4.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun8/5.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun8/6.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun8/7.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun8/8.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun8/9.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun8/10.jpg" class="img-fluid product-image" alt="">
+
+
+                                </div>
+                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
+                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
+                            </div>
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mezunlar Bulusmasi 6 -->
+                    <div class="col-lg-3 col-12 slider-container">
+                        <div class="product-thumb">
+                            <div class="image-slider">
+                                <div class="slider-wrapper">
+                                    <img src="images/sosyalmedya/amalmezun6/1.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun6/2.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun6/3.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun6/4.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun6/5.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun6/6.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun6/7.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun6/8.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun6/9.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun6/10.jpg" class="img-fluid product-image" alt="">
+
+
+                                </div>
+                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
+                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
+                            </div>
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mezunlar Bulusmasi 3 -->
+                    <div class="col-lg-3 col-12 slider-container">
+                        <div class="product-thumb">
+                            <div class="image-slider">
+                                <div class="slider-wrapper">
+                                    <img src="images/sosyalmedya/amalmezun3/1.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun3/2.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun3/3.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun3/4.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun3/5.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun3/6.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun3/7.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun3/8.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun3/9.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun3/10.jpg" class="img-fluid product-image" alt="">
+
+
+                                </div>
+                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
+                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
+                            </div>
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mezunlar Bulusmasi 2 -->
+                    <div class="col-lg-3 col-12 slider-container">
+                        <div class="product-thumb">
+                            <div class="image-slider">
+                                <div class="slider-wrapper">
+                                    <img src="images/sosyalmedya/amalmezun2/1.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun2/2.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun2/3.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun2/4.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun2/5.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun2/6.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun2/7.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun2/8.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun2/9.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun2/10.jpg" class="img-fluid product-image" alt="">
+
+
+                                </div>
+                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
+                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
+                            </div>
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mezunlar Bulusmasi 1 -->
+                    <div class="col-lg-3 col-12 slider-container">
+                        <div class="product-thumb">
+                            <div class="image-slider">
+                                <div class="slider-wrapper">
+                                    <img src="images/sosyalmedya/amalmezun1/1.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun1/2.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun1/3.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun1/4.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun1/5.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun1/6.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun1/7.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun1/8.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun1/9.jpg" class="img-fluid product-image" alt="">
+                                    <img src="images/sosyalmedya/amalmezun1/10.jpg" class="img-fluid product-image" alt="">
+
+                                </div>
+                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
+                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
+                            </div>
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+            </section>
+
+            <!-- Belgeseller Section'ı -->
+            <section id="documentaries" class="section-content">
+                <h2>Belgeseller</h2>
+
+                <div class="container" style="display: flex; align-items: center; justify-content: space-evenly;">
+
+
+                    <div>
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/bgvy8oAVHvw?si=juMtKXoy2qqRTUu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <h6>Direnişten Zafere: CarrefourSA Depo İşçileri Direnişi</h6>
+
+                    </div>
+
+                    <div>
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Z2_DS8EPCFE?si=eYUUQJlxIrZcXlgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        <h6>Bir STK'nın Gözünden 6 Şubat Depremleri</h6>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            </section>
+
+
+
+
+        </div>
+    </section>
+
+
+    <script>
+        // Butona tıklanıldığında ilgili section'u gösteren fonksiyon
+        function showSection(sectionId) {
+            // Tüm section'ları gizle
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => section.style.display = 'none');
+
+            // İlgili section'u göster
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+
+        document.querySelectorAll('.slider-container').forEach(container => {
+            const sliderWrapper = container.querySelector('.slider-wrapper');
+            const images = container.querySelectorAll('.slider-wrapper img');
+            let currentIndex = 0;
+
+            container.querySelector('.right-arrow').addEventListener('click', () => {
+                if (currentIndex < images.length - 1) {
+                    currentIndex++;
+                    sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+            });
+
+            container.querySelector('.left-arrow').addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+            });
+        });
+
+
+        //popicindir
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+
+
+
+    </script>
+
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+
+            <p class="col-8" style="text-align: center; margin: auto">Bir kuruma veya üçüncü şahsa ait olmayan, yalnızca şahsıma ait olan tasarımları dilediğiniz gibi kullanabilir, bastırabilir, çoğaltabilir ve dağıtabilirsiniz.</p>
+            <a class="col-8" style="text-align: center; padding-top:10px; margin: auto" target="_blank" href="https://www.goodreads.com/quotes/423527-you-are-horrified-at-our-intending-to-do-away-with">Özel mülkiyet hakkında ufak bir not için tıkla.</a>
+
+
+        </div>
+    </div>
+</footer>
+
+<!-- JAVASCRIPT FILES -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/Headroom.js"></script>
+<script src="js/jQuery.headroom.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>
