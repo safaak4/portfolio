@@ -146,6 +146,61 @@
         }
 
 
+        /* Tüm site dark mode */
+        body {
+            background-color: #121212; /* koyu arka plan */
+            color: #e0e0e0;           /* açık yazı rengi */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Başlıklar */
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff;
+        }
+
+        /* Linkler */
+        a {
+            color: #82cfff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Butonlar */
+        button {
+            background-color: #333333;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555555;
+        }
+
+        /* Input ve form elemanları */
+        input, textarea, select {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #444;
+            padding: 8px;
+        }
+
+        /* Örnek kart */
+        .card {
+            background-color: #1f1f1f;
+            color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+
         /* Mobilde fotoğrafın üstte, yazıların altta olması için medya sorgusu */
         @media (max-width: 768px) {
             .container {
@@ -190,8 +245,8 @@
         <img class="col-3 profile-image" style="width: 270px;" src="images/profil.png">
         <div class="row" style="">
             <h2 style="">Cuma Şafak Kara</h2>
-            <p style="">21 yaşındayım. İstanbul Üniversitesi, Elektrik Elektronik Mühendisliği bölümünde ikinci sınıf öğrencisiyim.</p>
-            <p style="">4 yıldır aktif olarak çoğunlukla sosyal medya odaklı tasarım ürünleri hazırlıyorum. Bu sitede yaptığım işlerin örneklerini bulabilirsiniz.</p>
+            <p style="">İstanbul Üniversitesi, Elektrik Elektronik Mühendisliği bölümü öğrencisiyim.</p>
+            <p style="">Aktif olarak sosyal medya odaklı tasarım ürünleri hazırlıyorum. Bu sitede yaptığım işlerin örneklerini bulabilirsiniz.</p>
 
             <h5>Yeteneklerim</h5>
             <div class="container" style="align-content: space-evenly">
@@ -245,17 +300,15 @@
                     <h2>Posterler</h2>
 
                     <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/uni_strike.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
                                             University Strike<br>Against Genocide
-                                        </div>
                                     </h5>
                                     <p class="" style="font-size: 16px; margin-bottom: 6px">16 Ekim 2024</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                    <a class="" target="_blank" style="font-size: 14px"
                                        href="https://drive.google.com/drive/folders/1KEoYRMz_7TSm8saPMFzzlfmi_hm56Lb2?usp=drive_link">
                                         Baskı dosyası için tıkla.
                                     </a>
@@ -264,40 +317,16 @@
                         </div>
                     </div>
 
-                   
-
                     <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
-                            <img src="images/poster/fibg_panel.jpg" class="img-fluid product-image" alt="">
-                            <div class="product-info d-flex">
-                                <div>
-                                    <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
-                                            Filistin için Bin Genç Paneli
-                                        </div>
-                                    </h5>
-                                    <p class="" style="font-size: 16px; margin-bottom: 6px">20 Eylül 2024</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
-                                       href="https://drive.google.com/file/d/17H2F4LC-gk9GCXUIMajsBMBZArUn516V/view?usp=sharing">
-                                        Baskı dosyası için tıkla.
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/silahlar_dusmana_dogru.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
                                             Tüm Silahlar Düşmana Doğru.
-                                        </div>
                                     </h5>
                                     <p class="" style="font-size: 16px; margin-bottom: 6px">25 Temmuz 2024</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                    <a class="" target="_blank" style="font-size: 14px"
                                        href="https://drive.google.com/file/d/1DJ6JWELmT2axMV7PborPJ71lI0SgoJzR/view?usp=sharing">
                                         Baskı dosyası için tıkla.
                                     </a>
@@ -307,17 +336,17 @@
                     </div>
 
                     <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/nakba_day.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                        <div  class="">
                                             Nakba Day - Anahtar Bizde!
                                         </div>
                                     </h5>
                                     <p class="" style="font-size: 16px; margin-bottom: 6px">25 Temmuz 2024</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                    <a class="" target="_blank" style="font-size: 14px"
                                        href="https://drive.google.com/file/d/17cz2SJ1cTI8fVo0zPUjCtva10y4MdJKd/view?usp=sharing">
                                         Baskı dosyası için tıkla.
                                     </a>
@@ -327,17 +356,17 @@
                     </div>
 
                     <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/global_intifada.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                        <div  class="">
                                             Long Live Global Intifada
                                         </div>
                                     </h5>
                                     <p class="" style="font-size: 16px; margin-bottom: 6px">4 Haziran 2024</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                    <a class="" target="_blank" style="font-size: 14px"
                                        href="https://drive.google.com/file/d/1r7qwOqliQJRVy83jJDDCPHedqGT7aMRm/view?usp=sharing">
                                         Baskı dosyası için tıkla.
                                     </a>
@@ -347,76 +376,37 @@
                     </div>
 
                     <div class="col-lg-3 col-12" style="margin-top: 28px">
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/eidmubarak_palestine.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                        <div  class="">
                                             Eid Mubarak Y'all, <br> May All Colonizers Fall!
                                         </div>
                                     </h5>
                                     <p class="" style="font-size: 16px; margin-bottom: 6px">10 Nisan 2024</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                    <a class="" target="_blank" style="font-size: 14px"
                                        href="https://drive.google.com/file/d/1ZKdqNfLw8ttcSjz66l6ewAgmkydGvYR_/view?usp=sharing">
                                         Baskı dosyası için tıkla.
                                     </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-12" style="" >
-                        <div class="product-thumb">
-                            <img src="images/poster/leilakhaled.jpg" class="img-fluid product-image" alt="">
-                            <div class="product-info d-flex">
-                                <div>
-                                    <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
-                                            Leila Khaled
-                                        </div>
-                                    </h5>
-                                    <p class="" style="font-size: 16px; margin-bottom: 6px">1 Nisan 2024</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
-                                       href="https://drive.google.com/file/d/1ZKdqNfLw8ttcSjz66l6ewAgmkydGvYR_/view?usp=sharing">
-                                        Baskı dosyası için tıkla.
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-12" style="margin-top: 42px" >
-                        <div class="product-thumb">
-                            <img src="images/poster/yasasin_kuresel_intifada.jpg" class="img-fluid product-image" alt="">
-                            <div class="product-info d-flex">
-                                <div>
-                                    <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
-                                            Yaşasın Küresel İntifada!
-                                        </div>
-                                    </h5>
-                                    <p class="" style="font-size: 16px; margin-bottom: 6px">5 Mart 2024</p>
-                                    <p class="product-p">
-                                        Baskı dosyası yok.
-                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-12" style="margin-top: 26px" >
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/palestine1_1.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                        <div  class="">
                                             Ne Halklar Arası Savaş, Ne Sınıflar Arası Barış!
                                         </div>
                                     </h5>
                                     <p class="" style="font-size: 16px; margin-bottom: 6px">6 Ocak 2024</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                    <a class="" target="_blank" style="font-size: 14px"
                                        href="https://drive.google.com/file/d/16jnmVrrxNo3AGOXFGVxKajwUxsVnIsf9/view?usp=sharing">
                                         Baskı dosyası için tıkla.
                                     </a>
@@ -426,17 +416,17 @@
                     </div>
 
                     <div class="col-lg-3 col-12" style="margin-top: 26px" >
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/palestine1_2.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                        <div  class="">
                                             Ne Halklar Arası Savaş, Ne Sınıflar Arası Barış!
                                         </div>
                                     </h5>
                                     <p class="" style="font-size: 16px; margin-bottom: 6px">6 Ocak 2024</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                    <a class="" target="_blank" style="font-size: 14px"
                                        href="https://drive.google.com/file/d/1W56wRLjrS15VNDx3yBHzz1fnf4NgZ-iM/view?usp=sharing">
                                         Baskı dosyası için tıkla.
                                     </a>
@@ -446,17 +436,17 @@
                     </div>
 
                     <div class="col-lg-3 col-12" style="margin-top: 0px" >
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/feyruz.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                        <div  class="">
                                             Feyruz - Fi Amal
                                         </div>
                                     </h5>
                                     <p class="" style="font-size: 16px; margin-bottom: 6px">25 Haziran 2023</p>
-                                    <a class="product-title-link" target="_blank" style="font-size: 14px"
+                                    <a class="" target="_blank" style="font-size: 14px"
                                        href="https://drive.google.com/file/d/1YyS85ZPNL6z0NVYEtmvqiAEsmrYRYmcH/view?usp=sharing">
                                         Baskı dosyası için tıkla.
                                     </a>
@@ -466,12 +456,12 @@
                     </div>
 
                     <div class="col-lg-3 col-12" style="margin-top: 0px" >
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/ankara_polisiyesi.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                        <div  class="">
                                             Bir Ankara Polisiyesi
                                         </div>
                                     </h5>
@@ -486,12 +476,12 @@
 
 
                     <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/antalya.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                        <div  class="">
                                             Antalya
                                         </div>
                                     </h5>
@@ -505,12 +495,12 @@
                     </div>
 
                     <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/poster/antakya.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
                                     <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                        <div  class="">
                                             Antakya
                                         </div>
                                     </h5>
@@ -537,16 +527,29 @@
                 <div class="row container" style="display: flex; align-items: center; justify-content: space-evenly;">
 
 
+                    <!-- göçkar 21eylul -->
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb" style="background-color: #121212;">
+                            <img src="images/sosyalmedya/barisgunu.jpg" class="img-fluid product-image" alt="">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="mb-0">
+
+                                            21 Eylül Barış Günü
+
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- melisa vargas 41 -->
                     <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/sosyalmedya/works5.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                    <h5 class="mb-0">
                                             41 - Melissa Vargas
-                                        </div>
                                     </h5>
                                 </div>
                             </div>
@@ -555,14 +558,12 @@
 
                     <!-- amalmezun 29ekim -->
                     <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
+                        <div class="product-thumb" style="background-color: #121212;">
                             <img src="images/sosyalmedya/amalmezun5_29ekim.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                    <h5 class="mb-0">
                                             29 Ekim Özel Gönderisi
-                                        </div>
                                     </h5>
                                 </div>
                             </div>
@@ -587,14 +588,12 @@
 
                     <!-- amalmezun 19mayis 2023 -->
                     <div class="col-lg-3 col-12">
-                        <div class="product-thumb">
+                        <div class="product-thumb"  style="background-color: #121212;">
                             <img src="images/sosyalmedya/amalmezun3_19mayis.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h5 class="product-title mb-0">
-                                        <div  class="product-title-link">
+                                    <h5 class="mb-0">
                                             19 Mayıs Özel Gönderisi
-                                        </div>
                                     </h5>
                                 </div>
                             </div>
@@ -602,153 +601,65 @@
                     </div>
 
                     <!-- Mezunlar Bulusmasi 8 -->
-                    <div class="col-lg-3 col-12 slider-container">
-                        <div class="product-thumb">
-                            <div class="image-slider">
-                                <div class="slider-wrapper">
-                                    <img src="images/sosyalmedya/amalmezun8/1.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun8/2.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun8/3.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun8/4.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun8/5.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun8/6.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun8/7.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun8/8.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun8/9.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun8/10.jpg" class="img-fluid product-image" alt="">
-
-
-                                </div>
-                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
-                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
-                            </div>
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb" style="background-color: #121212;">
+                            <img src="images/sosyalmedya/amalmezun8/1.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h5 class="product-title mb-0">
-                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    <h5 class="mb-0">
+                                            Etkinlik Gönderisi
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Mezunlar Bulusmasi 6 -->
-                    <div class="col-lg-3 col-12 slider-container">
-                        <div class="product-thumb">
-                            <div class="image-slider">
-                                <div class="slider-wrapper">
-                                    <img src="images/sosyalmedya/amalmezun6/1.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun6/2.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun6/3.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun6/4.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun6/5.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun6/6.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun6/7.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun6/8.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun6/9.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun6/10.jpg" class="img-fluid product-image" alt="">
-
-
-                                </div>
-                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
-                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
-                            </div>
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb" style="background-color: #121212;">
+                            <img src="images/sosyalmedya/amalmezun6/1.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h5 class="product-title mb-0">
-                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    <h5 class="mb-0">
+                                            Etkinlik Gönderisi
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Mezunlar Bulusmasi 3 -->
-                    <div class="col-lg-3 col-12 slider-container">
-                        <div class="product-thumb">
-                            <div class="image-slider">
-                                <div class="slider-wrapper">
-                                    <img src="images/sosyalmedya/amalmezun3/1.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun3/2.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun3/3.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun3/4.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun3/5.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun3/6.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun3/7.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun3/8.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun3/9.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun3/10.jpg" class="img-fluid product-image" alt="">
-
-
-                                </div>
-                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
-                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
-                            </div>
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb" style="background-color: #121212;">
+                            <img src="images/sosyalmedya/amalmezun3/1.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h5 class="product-title mb-0">
-                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    <h5 class="mb-0">
+                                            Etkinlik Gönderisi
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Mezunlar Bulusmasi 2 -->
-                    <div class="col-lg-3 col-12 slider-container">
-                        <div class="product-thumb">
-                            <div class="image-slider">
-                                <div class="slider-wrapper">
-                                    <img src="images/sosyalmedya/amalmezun2/1.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun2/2.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun2/3.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun2/4.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun2/5.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun2/6.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun2/7.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun2/8.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun2/9.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun2/10.jpg" class="img-fluid product-image" alt="">
-
-
-                                </div>
-                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
-                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
-                            </div>
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb" style="background-color: #121212;">
+                            <img src="images/sosyalmedya/amalmezun2/1.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h5 class="product-title mb-0">
-                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    <h5 class="mb-0">
+                                            Etkinlik Gönderisi
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Mezunlar Bulusmasi 1 -->
-                    <div class="col-lg-3 col-12 slider-container">
-                        <div class="product-thumb">
-                            <div class="image-slider">
-                                <div class="slider-wrapper">
-                                    <img src="images/sosyalmedya/amalmezun1/1.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun1/2.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun1/3.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun1/4.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun1/5.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun1/6.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun1/7.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun1/8.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun1/9.jpg" class="img-fluid product-image" alt="">
-                                    <img src="images/sosyalmedya/amalmezun1/10.jpg" class="img-fluid product-image" alt="">
-
-                                </div>
-                                <div class="arrow left-arrow">&#10094;</div> <!-- Sol ok -->
-                                <div class="arrow right-arrow">&#10095;</div> <!-- Sağ ok -->
-                            </div>
+                    <div class="col-lg-3 col-12">
+                        <div class="product-thumb" style="background-color: #121212;">
+                            <img src="images/sosyalmedya/amalmezun1/1.jpg" class="img-fluid product-image" alt="">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h5 class="product-title mb-0">
-                                        <div class="product-title-link">Etkinlik Gönderisi</div>
+                                    <h5 class="mb-0">
+                                            Etkinlik Gönderisi
                                     </h5>
                                 </div>
                             </div>
@@ -766,7 +677,7 @@
 
             <!-- Belgeseller Section'ı -->
             <section id="documentaries" class="section-content">
-                <h2>Belgeseller</h2>
+                <h2>Belgeseller / Videolar</h2>
 
                 <div class="container">
                     <div class="row gy-4">
@@ -793,6 +704,13 @@
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                             <h6>Bir STK'nın Gözünden 6 Şubat Depremleri</h6>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/iGtkGuTzcq0?si=6SNTtBSkAUnLZUr4"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <h6>29 Ekim 2023</h6>
                         </div>
                     </div>
                 </div>
