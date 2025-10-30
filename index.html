@@ -42,7 +42,7 @@
             display: block;
             width: 0;
             height: 2px;
-            background-color: black;
+            background-color: #ffffff;
             position: absolute;
             left: 0;
             bottom: 0;
@@ -233,11 +233,7 @@
 
 <body>
 
-<section class="preloader">
-    <div class="spinner">
-        <span class="sk-inner-circle"></span>
-    </div>
-</section>
+
 
 <main>
 
@@ -280,7 +276,7 @@
                 <div class="buttons">
                     <button onclick="window.location.hash = 'posters'">Posterler</button>
                     <button onclick="window.location.hash = 'socialMedia'">Sosyal Medya</button>
-                    <button onclick="window.location.hash = 'documentaries'">Belgeseller</button>
+                    <button onclick="window.location.hash = 'videos'">Belgesel ve Videolar</button>
                 </div>
             </section>
         </div>
@@ -683,7 +679,7 @@
             </section>
 
             <!-- Belgeseller Section'ı -->
-            <section id="documentaries" class="section-content">
+            <section id="videos" class="section-content">
                 <h2>Belgeseller / Videolar</h2>
 
                 <div class="container">
@@ -795,7 +791,7 @@
             // window.location.hash bize '#posters' gibi bir değer verir
             // .substring(1) ile '#' işaretini kaldırırız (örn: 'posters')
             // Eğer hash boşsa (ilk sayfa açılışıysa), varsayılan olarak 'posters' kullan
-            const sectionId = window.location.hash.substring(1) || 'posters';
+            const sectionId = window.location.hash.substring(1) || 'videos';
 
             showSection(sectionId);
         }
